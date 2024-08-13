@@ -1,4 +1,10 @@
-const io = require("socket.io")(3000, {
+// const io = require("socket.io")(3000, {
+//     cors: {
+//         origin: "temporary-chat-2hoe.vercel.app",
+//         methods: ["GET","POST"]
+//     }
+// });
+const io = require("socket.io")({
     cors: {
         origin: "temporary-chat-2hoe.vercel.app",
         methods: ["GET","POST"]
@@ -22,3 +28,4 @@ io.on("connection", socket => {
     })
 })
 
+module.exports = io;
