@@ -1,6 +1,7 @@
 const io = require("socket.io")(3000, {
     cors: {
         origin: "temporary-chat-2hoe.vercel.app",
+        methods: ["GET","POST"]
     }
 });
 
