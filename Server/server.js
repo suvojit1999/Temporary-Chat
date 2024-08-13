@@ -6,11 +6,11 @@ const app = express();
 //--------Deployment-----------
 const __dirname1 = path.resolve()
 
-app.use(express.static(path.join(__dirname1, '/Client/dist')))
+app.use(express.static(path.join(__dirname1, '../Client/dist')));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname1, "Client", "dist", "index.html"))
-})
+    res.sendFile(path.resolve(__dirname1, '../Client/dist', 'index.html'));
+});
 //--------Deployment-----------
 
 
