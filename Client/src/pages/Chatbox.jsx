@@ -14,7 +14,7 @@ const Chatbox = () => {
     useEffect(() => {
         // Initialize socket connection only once
         if (!socketRef.current) {
-            socketRef.current = io('http://localhost:3000');
+            socketRef.current = io('temporary-chat-hazel.vercel.app');
 
             socketRef.current.on('connect', () => {
                 // Handle connection
