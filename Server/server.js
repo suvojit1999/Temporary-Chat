@@ -1,4 +1,5 @@
 const express = require('express')
+const axios = require('axios')
 const path = require('path')
 
 const app = express();
@@ -46,3 +47,19 @@ io.on("connection", socket => {
 })
 
 
+
+//to keep the render server awake
+const siteUrl = "https://temporary-chat-w0nq.onrender.com";
+const interval = 30000; // 30 seconds
+
+function reloadWebsite() {
+  axios.get(siteUrl)
+    .then(response => {
+      console.log(`Reloaded at ${new Date().toISOString()}: Status Code ${response.status}`);
+    })
+    .catch(error => {
+      console.error(`Error reloading at ${new Date().toISOString()}:`, error.message);
+    });
+}
+
+setInterval(reloadWebsite, interval);
